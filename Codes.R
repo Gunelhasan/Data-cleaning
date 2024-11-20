@@ -52,4 +52,8 @@ plot_missing(data)
 #removes missing values 
 data = na.omit(data)
 
+#extracting kwh energy
+data$kwh <- substr(data$X1, nchar(data$X1) - 7, nchar(data$X1))
 
+#save file 
+write.csv(data, "cleaned_data.csv", row.names = FALSE)
